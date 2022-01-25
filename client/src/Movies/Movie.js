@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-export default function Movie(props) {
+export default function Movie() {
   const [movie, setMovie] = useState();
 
   let id = 0;
@@ -10,8 +10,8 @@ export default function Movie(props) {
   useEffect(() => {
     axios
       .get(`http://localhost:5001/api/movies/${id}`)
-      .then(response => {
-        setMovie(response.data)
+      .then(resp => {
+        setMovie(resp.data)
       })
       .catch(error => {
         console.error(error);
